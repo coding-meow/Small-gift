@@ -1,0 +1,308 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>For My Love</title>
+    <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@600&family=Poppins:wght@300;400&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary-color: #FF6F91;
+            --secondary-color: #FF9671;
+            --background-color: #FFF4E6;
+            --text-color: #333;
+        }
+
+        body {
+            margin: 0;
+            font-family: 'Poppins', sans-serif;
+            background-color: var(--background-color);
+            color: var(--text-color);
+            text-align: center;
+            overflow-x: hidden;
+        }
+
+        header {
+            background: linear-gradient(to right, var(--primary-color), var(--secondary-color));
+            color: white;
+            padding: 20px;
+            font-family: 'Dancing Script', cursive;
+            font-size: 2.5rem;
+        }
+
+        .container {
+            padding: 20px;
+        }
+
+        .hero {
+            margin: 20px auto;
+            padding: 20px;
+            background-image: url('cutebg.jpeg') ;
+            border-radius: 15px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+
+        .hero img {
+            width: 100%;
+            max-width: 500px;
+            border-radius: 15px;
+        }
+
+        .gallery {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+            gap: 10px;
+            margin-top: 20px;
+        }
+
+        .gallery img {
+            width: 100%;
+            border-radius: 10px;
+            opacity: 0;
+            animation: slideIn 3s ease-in-out infinite;
+        }
+
+        @keyframes slideIn {
+            0% {
+                transform: translateY(20px);
+                opacity: 0;
+            }
+            50% {
+                transform: translateY(0);
+                opacity: 1;
+            }
+            100% {
+                transform: translateY(20px);
+                opacity: 0;
+            }
+        }
+
+        .love-notes {
+            margin-top: 100px;
+            text-align: center;
+        }
+
+        .love-notes h2 {
+            font-size: 3rem;
+            color: var(--primary-color);
+            margin-bottom: 20px;
+        }
+
+        .notes-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 20px;
+        }
+
+        .note {
+            background: white;
+            font-size: 2rem;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            position: relative;
+            border: 2px solid var(--primary-color);
+            animation: fadeIn 1s ease-in-out;
+        }
+
+        .note::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background-image: url('heartbg.jpeg');
+            opacity: 0.5;
+            z-index: 0;
+        }
+
+        .note p {
+            position: relative;
+            z-index: 1;
+        }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(10px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        #surpriseButton {
+            margin: 20px auto;
+            padding: 40px;
+            background: var(--primary-color);
+            color: white;
+            border: none;
+            border-radius: 50%;
+            font-size: 2rem;
+            cursor: pointer;
+            transition: transform 0.3s ease;
+            position: relative;
+            width: 120px;
+            height: 120px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        #surpriseButton:hover {
+            transform: scale(1.1);
+        }
+
+        .button-text {
+            margin-top: 10px;
+            font-size: 1.2rem;
+            color: var(--text-color);
+        }
+
+        .heart {
+            position: absolute;
+            width: 20px;
+            height: 20px;
+            background: var(--secondary-color);
+            clip-path: polygon(50% 0%, 0% 50%, 50% 100%, 100% 50%);
+            animation: float 2s ease-in-out infinite;
+            opacity: 0.7;
+        }
+
+        @keyframes float {
+            0% {
+                transform: translateY(0) scale(1);
+                opacity: 0.7;
+            }
+            50% {
+                transform: translateY(-100px) scale(1.2);
+                opacity: 1;
+            }
+            100% {
+                transform: translateY(-200px) scale(0.8);
+                opacity: 0;
+            }
+        }
+
+        #surpriseImage {
+            display: none;
+            margin: 30px auto;
+            width: 300px;
+            height: 300px;
+            border-radius: 50%;
+            background: var(--background-color);
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+            position: relative;
+            border: 5px solid var(--primary-color);
+        }
+
+        #surpriseImage::before {
+            content: '';
+            position: absolute;
+            top: -15px;
+            left: -15px;
+            right: -15px;
+            bottom: -15px;
+            opacity: 0.2;
+            border-radius: 50%;
+        }
+
+        footer {
+            margin-top: 40px;
+            font-size: 0.8rem;
+            color: #555;
+        }
+
+        #surpriseMessage {
+            display: none;
+            margin-top: 20px;
+            font-size: 1.5rem;
+            animation: fadeIn 1s ease;
+        }
+    </style>
+</head>
+<body>
+    <audio autoplay loop>
+        <source src="cuteMusic.mp3" type="audio/mpeg">
+        Your browser does not support the audio element.
+    </audio>
+    <header>
+        For My Cheesy Potato 💖
+    </header>
+
+    <div class="container">
+        <div class="hero">
+            <img src="pic1.jpg" alt="A romantic placeholder image">
+            
+        </div>
+        <br>
+        <h1 color="white">Hi Banana,</h1>
+            <h2>I just love doing small things for u, and I wanna make u happy in every possible way i can, so here is a small gift for u💕</h2>
+
+        <section class="gallery">
+            <img src="pic2.jpg" alt="Memory 1" class="slide">
+            <img src="pic3.jpg" alt="Memory 2" class="slide">
+            <img src="pic8.jpg" alt="Memory 3" class="slide">
+            <img src="pic9.jpg" alt="Memory 4" class="slide">
+        </section>
+
+        <section class="love-notes">
+            <h2>Some cute notes for my cutie ✨</h2>
+            <div class="notes-grid">
+                <div class="note"><p>You make me smile, even when I don't want to.</p></div>
+                <div class="note"><p>Even though we're apart, you're always in my heart.</p></div>
+                <div class="note"><p>Counting down the days until I see you again! 🥰</p></div>
+            </div>
+        </section>
+
+        <div>
+            <p class="button-text">Click for surprise ↓</p>
+            <button id="surpriseButton">❤️</button>
+        </div>
+
+        
+        <div id="surpriseImage">
+            <img src="pic6.jpg" alt="Surprise Image" style="width: 100%; border-radius: 50%;">
+        </div>
+        <p id="surpriseMessage">You are the best thing that ever happened to me. 💕</p>
+    </div>
+
+    <footer>
+        Made with ❤️ for you. - By your Bama
+    </footer>
+
+    <script>
+        const surpriseButton = document.getElementById('surpriseButton');
+        const surpriseImage = document.getElementById('surpriseImage');
+        const surpriseMessage = document.getElementById('surpriseMessage');
+        const galleryImages = document.querySelectorAll('.gallery img');
+
+        surpriseButton.addEventListener('click', () => {
+            // Create floating hearts animation
+            for (let i = 0; i < 20; i++) {
+                const heart = document.createElement('div');
+                heart.classList.add('heart');
+                heart.style.left = `${Math.random() * 100}%`;
+                heart.style.animationDuration = `${Math.random() * 2 + 2}s`;
+                document.body.appendChild(heart);
+                setTimeout(() => heart.remove(), 4000);
+            }
+
+            // Reveal the surprise image and message
+            setTimeout(() => {
+                surpriseImage.style.display = 'block';
+                surpriseMessage.style.display = 'block';
+            }, 2000);
+        });
+        galleryImages.forEach((img, index) => {
+            img.style.animationDelay = `${index * 1}s`;
+        });
+    </script>
+    
+</body>
+</html>
+
+
+       
